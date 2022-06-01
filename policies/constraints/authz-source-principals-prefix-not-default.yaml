@@ -1,0 +1,15 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: AsmAuthzPolicyDisallowedPrefix
+metadata:
+  name: authz-source-principals-prefix-not-default
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+    - apiGroups:
+      - security.istio.io
+      kinds:
+      - AuthorizationPolicy
+  parameters:
+    disallowedPrincipalPrefixes:
+    - default

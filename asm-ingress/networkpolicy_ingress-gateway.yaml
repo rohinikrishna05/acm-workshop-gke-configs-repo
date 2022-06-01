@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: asm-ingressgateway
+  namespace: asm-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app: asm-ingressgateway
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - {}
+  egress:
+  - {}
